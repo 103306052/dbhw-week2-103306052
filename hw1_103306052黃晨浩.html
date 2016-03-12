@@ -5,113 +5,126 @@
 		<title>Timer</title>
   </head>
   <style>
- body{
-  text-align: center;
-  background: #9999FF;
-  font-family: cursive;
-  font-weight: 100;
-}
+    body
+    {
+      text-align: center;
+      background: #9999FF;
+      font-family: cursive;
+      font-weight: 100;
+    }
 
-h1{
-  color: black;
-  font-weight: 100;
-  font-size: 40px;
-  margin: 40px 0px 20px;
-  animation-duration: 1s;
-  animation-name: slidein;
-  }
-  @keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 300%; 
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
-}
+    h1
+    {
+      color: black;
+      font-weight: 100;
+      font-size: 40px;
+      margin: 40px 0px 20px;
+      animation-duration: 1s;
+      animation-name: slidein;
+    }
+    @keyframes slidein 
+    {
+      from 
+      {
+        margin-left: 100%;
+        width: 300%; 
+      }
+      to 
+      {
+        margin-left: 0%;
+        width: 100%;
+      }
+    }
   
-  
-
-
-#timer-wrapper{
+  #timer-wrapper
+  {
     font-family: cursive;
     color: black;
     display: inline-block;
     font-weight: 100;
     text-align: center;
     font-size: 25px;
-}
+  }
 
-#timer-wrapper > div{
+  #timer-wrapper > div
+  {
     padding: 10px;
     border-radius: 3px;
     background: #7777FF;
     display: inline-block;
-}
+  }
 
-.text{
-
+  .text
+  {
     font-size: 15px;
-}
+  }
 
   </style>
   <body>
-  <h1>DB HW1</h1>
-<div id="timer-wrapper">
-  <span id="num1">24</span>
-  <div id="text">Hours</div>
-  <span id="num2">60</span>
-  <div id="text">Minutes</div>
-  <span id="num3">60</span>
-  <div id="text">Seconds</div>
-</div>
-
+    <h1>DB HW1</h1>
+    <div id="timer-wrapper">
+      <span id="num1">24</span>
+      <div id="text">Hours</div>
+      <span id="num2">60</span>
+      <div id="text">Minutes</div>
+      <span id="num3">60</span>
+      <div id="text">Seconds</div>
+    </div>
   </body>
   <script>
-  function minus() {
-  if (document.getElementById("num3")) {
-    var curr3 = parseInt(document.getElementById("num3").innerHTML);
-    var curr2 = parseInt(document.getElementById("num2").innerHTML);
-    var curr1 = parseInt(document.getElementById("num1").innerHTML);
-  }
-
-  if (curr3 && curr3 <= 60) {
-
-    if (curr3 <= 10) {
-      document.getElementById("num3").innerHTML = "0" + (curr3 - 1);
-    } else {
-      document.getElementById("num3").innerHTML = curr3 - 1;
+    function minus() 
+    {
+      if (document.getElementById("num3")) 
+      {
+        var curr3 = parseInt(document.getElementById("num3").innerHTML);
+        var curr2 = parseInt(document.getElementById("num2").innerHTML);
+        var curr1 = parseInt(document.getElementById("num1").innerHTML);
+      }
+    if (curr3 && curr3 <= 60) 
+    {
+      if (curr3 <= 10) 
+      {
+        document.getElementById("num3").innerHTML = "0" + (curr3 - 1);
+      } 
+      else 
+      {
+        document.getElementById("num3").innerHTML = curr3 - 1;
+      }
+    } 
+    else 
+    {
+      document.getElementById("num3").innerHTML = 60;
+      document.getElementById("num2").innerHTML = curr2 -1;
     }
-  } else {
-    document.getElementById("num3").innerHTML = 60;
-    document.getElementById("num2").innerHTML = curr2 -1;
-  }
 
-  setTimeout(function() {
-    minus();
-  }, 1000);
-  
-  if(curr2 <= 10){
-     document.getElementById("num2").innerHTML = "0" + (curr2);
+    setTimeout(function() 
+    {
+      minus();
+    }
+    , 1000);
+    
+    if(curr2 <= 10)
+    {
+       document.getElementById("num2").innerHTML = "0" + (curr2);
+    }
+    
+    if(curr2 == 0)
+    {
+       document.getElementById("num2").innerHTML = 60;
+       document.getElementById("num1").innerHTML = curr1 - 1;
+    }
+    
+    if(curr1 <= 10)
+    {
+       document.getElementById("num1").innerHTML = "0" + (curr1);
+    }
+    
+    if(curr1 == 0)
+    {
+       document.getElementById("num1").innerHTML = 24
+    }
+    
   }
-  
-  if(curr2 == 0){
-     document.getElementById("num2").innerHTML = 60;
-     document.getElementById("num1").innerHTML = curr1 - 1;
-  }
-  
-  if(curr1 <= 10){
-     document.getElementById("num1").innerHTML = "0" + (curr1);
-  }
-  
-  if(curr1 == 0){
-     document.getElementById("num1").innerHTML = 24
-  }
-  
-}
-minus();
-
+  minus();
   </script>
 </html>
